@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  
+  .navbar-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Navbar Regular CSS */
+  .navbar-area {
+    background: black;
+    border-bottom: 1px solid #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  .header-area {
+    padding-top: 50px; /* Add padding to the top to avoid content being overlapped by the fixed navbar */
+  }
+  
+  .intro-area {
+    margin-top: 50px; /* Adjust margin-top to create space for the fixed navbar */
+  }
+  
+  .site-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  a.site-logo {
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .site-navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  
+  .site-navbar ul li a {
+    color: #fff;
+    font-family: "Lora", serif;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .site-navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #c2a06d;
+  }

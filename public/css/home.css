@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Nunito+Sans:wght@300&family=Secular+One&display=swap");
+body{
+    background-image: url(../images/bg.png);
+}
+
+  .all-text{
+    margin-top: 100px;
+}
+  
+.name{
+    text-align: center;
+    font-style: sans-serif;
+    font-weight: bold;
+    font-size: 141px;
+    color: #FAF6E9;
+    line-height: 1.0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: "Secular One", sans-serif;
+    letter-spacing: 5px;
+}
+
+.description{
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 30px;
+    color: #FAF6E9;
+    letter-spacing: 5px;
+}
+
+.vid{
+    display:block;
+    margin: 0 auto;
+    width: 840px;
+    height: 680px;
+}
+
+#vid1{
+    
+    margin-top: 80px;
+    border: none;
+}
+
+.caption1{
+    text-align: center;
+    color: #C2A06D;
+    background-color: black;
+    width: 840px;
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-family: "Lora", serif;;
+}
+
+#vid2{
+    margin-top: 80px;
+    border: none;
+}
+
+.caption2{
+    text-align: center;
+    color: #C2A06D;
+    background-color: black;
+    width: 840px;
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-family: "Lora", serif;
+}
+
+.more-button{
+    text-align: center;
+    margin-left: 700px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.m-b{
+    border: 1px solid #C2A06D;
+    background-color: black;
+    color: #C2A06D;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    width: 130px;
+    font-family: "Lora", serif;
+}
+
+.m-b::after{
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #C2A06D;
+    border-right: 2px solid #C2A06D;
+    right: 18px;
+    margin-top: -5px;
+    transform: rotate(45deg);
+
+}
+
+.m-b:hover::after{
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.m-b:hover{
+    background-color: #C2A06D;
+    color: black;
+}

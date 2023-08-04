@@ -1,0 +1,81 @@
+ <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <script src="../javascript/view-more.js"></script>
+  <script src="../javascript/profile.js"></script>
+  <link rel="stylesheet" href="../css/reviews.css" />
+<!-- profile.handlebars -->
+<div class="user-box">
+    <h3>{{firstName}} {{lastName}}</h3>
+    <p>Email: {{email}}</p>
+</div>
+<div class="testimonial-heading" style="display: flex; justify-content: center; align-items: center; height: 100px; color: white">
+    <h1 style="font-size: 50px;">Reviews Posted</h1>
+</div>
+{{#each reviews}}
+    <div class="testimonial-box-container">
+      <!-- BOX-1 -->
+      <div class="testimonial-box" id="testimonial-box{{_id}}" data-testimonial-id="{{_id}}">
+        <!-- Top -->
+        <div class="box-top">
+          <!-- Profile -->
+          <div class="profile">
+            <!-- Name and Username -->
+            <div class="name-user">
+              <strong>{{first_name}} {{last_name}}</strong>
+            </div>
+          </div>
+          <!-- Reviews -->
+          <div class="reviews" id="reviews">
+            {{#each rating}}
+              {{#if this}}
+                <i class="fas fa-star"></i>
+              {{else}}
+                <i class="far fa-star"></i>
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        <!-- Comments -->
+        <div class="client-comment">
+          <div class="delete-update-cont">
+            <button type="button" class="delete" data-review-id="{{_id}}" onclick="deleteReview('{{_id}}')">Delete Review</button>
+            <button class="edit-button" data-review-id="{{_id}}">Edit Review</button>
+          </div>
+          <p id="editpost">
+            {{content}}
+          </p>
+        <div class="post-footer">
+          <div class="actions">
+            <a class="icon heart" id="heart{{@index}}"></a>
+            <a class="icon comment" id="comment-icon{{@index}}"></a>
+          </div>
+        </div>
+        <div class="other-comment">
+          <span id="likes-count-1">{{likes_count}}</span>
+          <i class="fas fa-heart"></i>
+          <span id="comments-count">{{comment_count}}</span>
+          <i class="fas fa-comments"></i>
+        </div>
+        {{#if comments.length}}
+        <!-- Loop through all comments for this review and display them -->
+        {{#each comments}}
+        <div class="reply mt-4 text-justify float-left">
+          <h4>{{name}}</h4>
+          <span>- {{date}}</span>
+          <br>
+          <p>{{comment}}</p>
+        </div>
+        {{/each}}
+      {{else}}
+        <!-- If there are no comments, display a message -->
+        <div class="no-comments">
+          <p>No comments for this review.</p>
+        </div>
+      {{/if}}
+      <!-- End of loop through comments -->
+    </div>
+        <div class="view-more">
+          <button type="button" class="m-b view-more-button" data-review-index="{{@index}}">View More</button>
+        </div>
+        </div>
+    {{/each}}
+    

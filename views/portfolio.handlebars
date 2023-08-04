@@ -1,0 +1,82 @@
+<p class="portfolio">PORTFOLIO</p>
+    <p class="description">a showcase of filmed & edited videos</p>
+
+    <div class="container">
+        <div class="videos">
+            <video class="active" src="images/video1.mp4" muted></video>
+            <p class="gg">goodbye girlfriend</p>
+            <video src="images/video2.mp4" muted></video>
+            <p class="mumu">mumu edit</p>
+            <video src="images/video3.mp4" muted></video>
+            <p class="whirr">whirr edit</p>
+            <!-- <video src="videos/video4.mp4" muted></video> -->
+        </div>
+        <div class="main-video">
+            <video src="images/video1.mp4" muted controls autoplay></video>
+        </div>
+    </div>
+
+    <!-- jquery cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('.videos video').click(function(){
+
+                $(this).addClass('active').siblings().removeClass('active');
+
+                var src = $(this).attr('src');
+                $('.main-video video').attr('src',src);
+            });
+        });
+
+    </script>
+
+    <!-- <div class="services">
+        <p class="description">Self-made videos that revolve around different themes</p>
+        <p class="description">Need help in editing your video? I edit videos of any kind!</p>
+        <p class="description">Offering video and portrait content for businesses or companies.</p>
+    </div> -->
+
+    <p class="more">More Videos</p>
+    
+    <div class="video-slider">
+            <div class="container1">
+                <video class="column" controls>
+                    <source src="images/video4.mp4" type="video/mp4"></source>
+                </video>
+                <video class="column" controls>
+                    <source src="images/video5.mp4" type="video/mp4"></source>
+                 </video>
+            </div>
+
+            <div class="container3">
+                <p class="column1">
+                    merchandise teaser
+                </p>
+                <p class="column1">
+                   all about lily chou chou
+                </p>
+            </div>
+
+             <div class="container2">
+                <video class="column" controls>
+                    <source src="images/video6.mp4" type="video/mp4"></source>
+                </video>
+                <video class="column" controls>
+                    <source src="images/video7.mp4" type="video/mp4"></source>
+                 </video>
+            </div>
+
+            <div class="container4">
+                <p class="column1">
+                    The leprechaun that rest's at the end of EDSA 
+                </p>
+                <p class="column1">
+                   where after earth¿
+                </p>
+            </div>
+        
+    </div>

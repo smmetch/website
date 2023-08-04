@@ -1,0 +1,23 @@
+<header class="header-area">
+    <div class="navbar-area">
+        <div class="navbar-container">
+            <nav class="site-navbar">
+                <a href="#home" class="site-logo">JY</a>
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/about">about me</a></li>
+                    <li><a href="/portfolio">portfolio</a></li>
+                    <li><a href="/reviews">reviews</a></li>
+                    {{#if session.user}}
+                        <!-- Show these links if the user is logged in -->
+                        <li><a href="/profile">profile</a></li>
+                        <li><a href="/logout">log-out</a></li>
+                    {{else}}
+                        <!-- Show these links if the user is not logged in -->
+                        <li><a href="/login">log-in</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Nunito+Sans:wght@300&family=Secular+One&display=swap");
+
+
+  
+  body {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    background-image: url("../images/bg.png");
+  }
+  
+  .navbar-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  /* Navbar Regular CSS */
+  .navbar-area {
+    /* background: rgba(0, 0, 0, 0.6); */
+    background: black;
+    border-bottom: 1px solid #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  .header-area {
+    padding-top: 50px; /* Add padding to the top to avoid content being overlapped by the fixed navbar */
+  }
+  
+  .intro-area {
+    margin-top: 50px; /* Adjust margin-top to create space for the fixed navbar */
+  }
+  
+  .site-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  a.site-logo {
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .site-navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  
+  .site-navbar ul li a {
+    color: #fff;
+    font-family: "Lora", serif;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .site-navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #c2a06d;
+  }
+
+.login {
+    font-family: "Nunito Sans", sans-serif;
+    background: transparent;
+    margin: 0 auto;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 2px solid #C2A06D;
+}
+
+.login h1 {
+    font-family: "Nunito Sans", sans-serif;
+    padding: 30px 35px 0 35px;
+    font-weight: 300;
+    color: white;
+}
+
+.login .content {
+    padding: 35px;
+    text-align: center;
+}
+
+.login .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Nunito Sans', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 2px solid #C2A06D;
+    outline: none;
+    transition: all .2s;
+    margin-top: 2%;
+    background-color: transparent;
+    color: white;
+}
+
+.login .action {
+    display: flex;
+    flex-direction: row;
+}   
+.login button{
+  width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0.2px;
+    outline: 0;
+    transition: all .3s;
+    margin-top: 5%;
+    text-align: center;
+   text-decoration: none;
+   color: white;
+  background: #C2A06D;
+}
+.login .action a{
+    width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+    background: #e8e9ec;
+    color: black;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0.2px;
+    outline: 0;
+    transition: all .3s;
+    margin-top: 5%;
+    text-align: center;
+   text-decoration: none;
+}
+
+.login .action a:hover {
+    background: #d8d8d8;
+}
+
+.login button:hover {
+    background: #e4be86;
+}

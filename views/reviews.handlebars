@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script>
+  const userData = {
+    firstName: "{{first_name}}",
+    lastName: "{{last_name}}",
+    isLoggedIn: "{{userData.isLoggedIn}}",
+  };
+</script>
+<script src="../javascript/view-more.js"></script>
+<section id="testimonials">
+    <!-- Heading -->
+    <div class="testimonial-heading">
+      <h1>Client Reviews</h1>
+    </div>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search for Users..." />
+      <button id="search-button">Search</button>
+      <div class="sort-by-container">
+        <label for="sort-by-select"></label>
+        <select id="sort-by-select">
+          <option value="default">Default</option>
+          <option value="rating">Rating</option>
+          <option value="likes">Likes</option>
+          <option value="comments">Comments</option>
+        </select>
+      </div>
+    </div>
+    <!-- Testimonials Box Container -->
+    {{#each reviews}}
+    <div class="testimonial-box-container">
+      <!-- BOX-1 -->
+      <div class="testimonial-box" id="testimonial-box{{@index}}" data-testimonial-id="{{_id}}">
+        <!-- Top -->
+        <div class="box-top">
+          <!-- Profile -->
+          <div class="profile">
+            <!-- Name and Username -->
+            <div class="name-user">
+              <strong>{{first_name}} {{last_name}}</strong>
+            </div>
+          </div>
+          <!-- Reviews -->
+          <div class="reviews" id="reviews">
+            {{#each rating}}
+              {{#if this}}
+                <i class="fas fa-star"></i>
+              {{else}}
+                <i class="far fa-star"></i>
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        <!-- Comments -->
+        <div class="client-comment">
+          <p>
+            {{content}}
+          </p>
+        <div class="post-footer">
+        <div class="actions">
+          <a class="icon heart" id="heart{{this._id}}" data-review-id="{{this._id}}"></a>
+          <a class="icon comment" id="comment-icon{{@index}}"></a>
+        </div>
+      </div>
+      <div class="other-comment">
+        <span id="likes-count-{{this._id}}">{{likes_count}}</span>
+        <i class="fas fa-heart"></i>
+        <span id="comments-count-{{this._id}}">{{comment_count}}</span>
+        <i class="fas fa-comments"></i>
+      </div>
+
+        {{#if comments.length}}
+        <!-- Loop through all comments for this review and display them -->
+        {{#each comments}}
+        <div class="reply mt-4 text-justify float-left">
+          <h4>{{name}}</h4>
+          <span>- {{date}}</span>
+          <br>
+          <p>{{comment}}</p>
+        </div>
+        {{/each}}
+      {{else}}
+        <!-- If there are no comments, display a message -->
+        <div class="no-comments">
+          <p>No comments for this review.</p>
+        </div>
+      {{/if}}
+      <!-- End of loop through comments -->
+    </div>
+        <div class="view-more">
+          <button type="button" class="m-b view-more-button" data-review-index="{{@index}}">View More</button>
+        </div>
+        
+          {{#if ../userData.isLoggedIn}}
+        <textarea type="text" class="comment-textbox" placeholder="Leave a Comment" id="comment-textbox-{{_id}}"></textarea>
+        <button type="button" class="m-b post-button" id="post-button-{{_id}}" data-review-index="{{@index}}" data-post-id="{{_id}}">Post</button>
+      {{/if}}
+    </div>
+  </div>
+{{/each}}
+     {{#if userData.isLoggedIn}}
+      <div class="testimonial-heading">
+          <h1>Leave a Review!</h1>
+  <textarea type="text" class="textbox" placeholder="Message" id="review-message"></textarea>
+  <div class="rating">
+    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>           
+    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+  </div>
+  <a class="send" id="send-review">Post</a> <!-- Add ID for the "send" link -->
+</div>
+{{/if}}
+  
+      <!-- SEARCH USER FUNCTION -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const searchInput = document.getElementById('search-input');
+          const searchButton = document.getElementById('search-button');
+          const reviewContainers = document.querySelectorAll('.testimonial-box');
+
+          // Function to hide or show review containers based on the search input
+          function filterReviews(searchTerm) {
+            const searchQuery = searchTerm.toLowerCase().trim();
+
+            reviewContainers.forEach((container) => {
+              const userName = container.querySelector('.name-user strong').textContent.toLowerCase();
+              if (userName.includes(searchQuery)) {
+                container.style.display = 'block';
+              } else {
+                container.style.display = 'none';
+              }
+            });
+          }
+
+          // Event listener for search button click
+          searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value;
+            filterReviews(searchTerm);
+          });
+
+          // Event listener for input in search box
+          searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value;
+            filterReviews(searchTerm);
+          });
+        });
+      </script>
+      <script>
+        const userFirstName = "{{session.user.first_name}}";
+        const userLastName = "{{session.user.last_name}}";
+      </script>
+    </section>
+<script src="../javascript/reviews.js"></script>

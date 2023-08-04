@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Nunito+Sans:wght@300&family=Secular+One&display=swap");
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  background-image: url("../images/bg.png");
+}
+
+a{
+    text-decoration: none;
+}
+#testimonials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.testimonial-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+.testimonial-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+}
+.testimonial-box{
+    width: 600px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background: transparent;
+    padding: 20px;
+    margin: 15px auto;
+    cursor: pointer;
+    transition: transform ease 0.3s;
+    border: 2px solid #C2A06D;
+}
+.testimonial-box:hover{
+    transform: translateY(-10px);
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: white;
+    font-size: 0.8rem;
+}
+.reviews{
+    color: #f9d71c;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font-size: 0.9rem;
+    color: white;
+    padding-bottom: 10px;
+}
+.review{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: none;
+    color: white;
+    width: 400px;
+    height: 100px;
+    background: #C2A06D;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.textbox{
+    font-size: 0.875rem;
+    padding: 0.5em;
+    border-radius: 5px;
+    width: 300%;
+    height: 8rem;
+    margin-top: 0;
+    border: none;
+    resize: vertical;
+}
+
+.comment-textbox{
+    font-size: 0.875rem;
+    padding: 0.5em;
+    border-radius: 5px;
+    width: 100%;
+    height: 8rem;
+    margin-top: 10px;
+    border: none;
+    resize: vertical;
+}
+
+.send{
+    border: 1px solid #C2A06D;
+    background-color: black;
+    color: #C2A06D;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    width: 90px;
+    font-family: "Lora", serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.send:hover{
+    background-color: #C2A06D;
+    color: black;
+}
+.rating {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    direction: rtl; /* Added */
+}
+
+.rating div {
+    margin-right: 10px;
+}
+
+.rating label {
+    float: none;
+    position: relative;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    transition: color 0.3s; /* Added */
+}
+
+.rating label:before {
+    content: "\2605";
+    font-size: 42px;
+    color: #ccc;
+    line-height: 1;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating input:checked ~ label:before,
+.rating:not(:checked) > label:hover:before,
+.rating:not(:checked) > label:hover ~ label:before {
+    color: #f9df4a;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reply{
+    font-family: "Nunito Sans", sans-serif;
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+    float: left;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .reply h4,.reply span,.darker h4,.darker span{
+    display: inline;
+  }
+  
+  .reply.hidden {
+    display: none;
+  }
+  
+  .view-more {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .more-button{
+    text-align: center;
+    margin-left: 700px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .m-b{
+    border: 1px solid #C2A06D;
+    background-color: black;
+    color: #C2A06D;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    width: 90px;
+    font-family: "Lora", serif;
+    text-align: center;
+  }
+  
+  .m-b::after{
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 8px;
+    height: 8px;
+    right: 18px;
+    margin-top: -5px;
+    transform: rotate(45deg);
+  
+  }
+  
+  .m-b:hover{
+    background-color: #C2A06D;
+    color: black;
+  }
+  
+  span.like {
+	display: inline-block;
+	background-image: url("../images/sprites.png");
+	background-position: -480px -263px;
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 28px;
+	margin: 8px 4px 8px 0px;
+}
+
+span.comment {
+	display: inline-block;
+	background-image: url("../images/sprites.png");
+	/* background-size: 28px 29px; */
+	background-position: -420px -263px;
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 28px;
+	margin: 8px 4px 8px 4px;
+}
+
+.other-comment{
+    color:white
+}
+
+a.icon {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  background-image: url("../images/spritesheet.png");
+  background-repeat: no-repeat;
+}
+
+.heart {
+  background-position: -102px -1px;
+}
+
+.heart:hover,
+.heart.clicked {
+  background-position: -69px 0px;
+}
+
+.comment{
+  background-position: -34px 0px;
+}
+.comment:hover{
+  background-position: 0px 0px;
+}
+
+#search-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  background-color: #C2A06D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#sort-by-select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+@media(max-width:1060px){
+    .testimonial-box{
+        width: 45%;
+        padding: 10px;
+    }
+
+}
+@media(max-width:790px){
+    .testimonial-box{
+        width: 90%;
+    }
+    .testimonial-heading h1{
+        font-size: 1.4rem;
+    }
+}
+@media(max-width:340px){
+    .box-top{
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .reviews{
+        margin-top: 10px;
+    }
+}
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}
