@@ -1,11 +1,10 @@
 {
   "name": "phase-2",
   "version": "1.0.0",
-  "description": "Group: Czarina Lumandas, Martin Jose Lada, and Sofia Mariel Mitchell",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +14,6 @@
     "express": "^4.18.2",
     "express-handlebars": "^5.3.5",
     "express-session": "^1.17.3",
-    "mongoose": "^5.13.0",
-    "version": "^0.1.2"
+    "mongoose": "^7.3.0"
   }
 }
