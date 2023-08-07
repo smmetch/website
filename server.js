@@ -6,7 +6,6 @@ const Handlebars = require("handlebars");
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const connectToMongoDB = require('./db/conn');
 
 const equals = function (value1, value2, options) {
   return value1.toString() === value2.toString() ? options.fn(this) : options.inverse(this);
@@ -14,14 +13,7 @@ const equals = function (value1, value2, options) {
 
 
 // Connect to MongoDB using mongoose (you need to set up your MongoDB connection here)
-// mongoose.connect('mongodb://127.0.0.1/website', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Connect to MongoDB Atlas
-const mongoURI = process.env.MONGODB_URI;
-const dbName = process.env.DB_NAME;
-
-connectToMongoDB(mongoURI, dbName);
-
+mongoose.connect('mongodb://127.0.0.1/website', { useNewUrlParser: true, useUnifiedTopology: true });
 const { Review, Comment, User } = require('./models/website');
 
 app.engine('handlebars', expbs({ 
@@ -155,9 +147,6 @@ app.get('/reviews', async (req, res) => {
       isLoggedIn: Boolean(req.session.user),
     };
 
-    // Verify userData is correctly populated
-    console.log(userData);
-
     const { sort } = req.query;
     if (sort) {
       switch (sort) {
@@ -280,33 +269,6 @@ app.post('/api/reviews', async (req, res) => {
   }
 });
 
-
-
-app.patch('/api/reviews/:id', async (req, res) => {
-  try {
-    const reviewId = req.params.id;
-    const { content } = req.body;
-
-    // Find the review in the database based on the provided reviewId
-    const review = await Review.findByIdAndUpdate(
-      reviewId,
-      { content }, // Update the content field with the new content
-      { new: true } // Return the updated document
-    );
-
-    if (!review) {
-      return res.status(404).json({ error: 'Review not found' });
-    }
-
-    res.json(review); // Respond with the updated review
-  } catch (error) {
-    console.error('Error updating review:', error);
-    res.status(500).json({ error: 'Failed to update review' });
-  }
-});
-
-app.use(express.urlencoded({ extended: true }));
-
 app.post('/api/users', async (req, res) => {
     try {
       const { first_name, last_name, email, password, Gender } = req.body;
@@ -383,14 +345,23 @@ app.post('/api/postcomment', async (req, res) => {
 
     const savedComment = await newComment.save();
 
+    // Increment the comment count for the post in the database
+    const post = await Review.findByIdAndUpdate(
+      post_id,
+      { $inc: { comment_count: 1 } }, // Increment the comment_count field by 1
+      { new: true }
+    );
+
+    if (!post) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
     res.status(201).json(savedComment);
   } catch (error) {
     console.error('Error creating comment:', error);
     res.status(500).json({ error: 'Failed to create comment' });
   }
 });
-
-// ... Your other routes ...
 
 // Route to display user's profile and their reviews
 app.get('/profile', async (req, res) => {
@@ -428,7 +399,31 @@ app.get('/profile', async (req, res) => {
   }
 });
 
-// ... Your other routes ...
+app.patch('/api/reviews/:id', async (req, res) => {
+  try {
+    const reviewId = req.params.id;
+    const { content } = req.body;
+    const { likes_count } = req.body;
+
+    // Find the review in the database based on the provided reviewId
+    const review = await Review.findByIdAndUpdate(
+      reviewId,
+      { content, likes_count }, // Update the content field with the new content
+      { new: true } // Return the updated document
+    );
+
+    if (!review) {
+      return res.status(404).json({ error: 'Review not found' });
+    }
+
+    res.json(review); // Respond with the updated review
+  } catch (error) {
+    console.error('Error updating review:', error);
+    res.status(500).json({ error: 'Failed to update review' });
+  }
+});
+
+app.use(express.urlencoded({ extended: true }));
 
 // Start the server
 const port = 3000;
