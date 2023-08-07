@@ -13,7 +13,14 @@ const equals = function (value1, value2, options) {
 
 
 // Connect to MongoDB using mongoose (you need to set up your MongoDB connection here)
-mongoose.connect('mongodb://127.0.0.1/website', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://127.0.0.1/website', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Connect to MongoDB Atlas
+const mongoURI = process.env.MONGODB_URI;
+const dbName = process.env.DB_NAME;
+
+connectToMongoDB(mongoURI, dbName);
+
 const { Review, Comment, User } = require('./models/website');
 
 app.engine('handlebars', expbs({ 
