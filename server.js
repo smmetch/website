@@ -6,6 +6,7 @@ const Handlebars = require("handlebars");
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const connectToMongoDB = require('./db/conn');
 
 const equals = function (value1, value2, options) {
   return value1.toString() === value2.toString() ? options.fn(this) : options.inverse(this);
