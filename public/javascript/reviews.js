@@ -78,7 +78,7 @@ async function submitReview() {
   try {
     // Get the review data from the form elements
     const ratingElements = document.querySelectorAll('input[name="rating"]');
-    const rating = Array.from(ratingElements).some((element) => element.checked);
+    const rating = Array.from(ratingElements).map((element) => element.checked);
     const content = document.getElementById('review-message').value.trim();
 
     // Check if the rating and content are filled
